@@ -28,3 +28,7 @@ Route::get('/test-images', function () {
 
 Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
 Route::get('/projects/{slug}', [ProjectController::class, 'show'])->name('projects.show');
+
+Route::get('/services', function () {
+    return view('services');
+})->name('services');

@@ -50,20 +50,8 @@
                         <ul class="dl-menu">
                             <li><a href="{{ route('home') }}">Home</a></li>
                             <li><a href="{{ route('about') }}">About</a></li>
-                            <li><a href="#">Services</a>
-                                <ul>
-                                    <li><a href="services-1.html">Services 01</a></li>
-                                    <li><a href="services-2.html">Services 02</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{{ route('services') }}">Services</a></li>
                             <li><a href="{{ route('projects') }}">Projects</a></li>
-                            <li><a href="#">Blog</a>
-                                <ul>
-                                    <li><a href="blog-grid.html">Blog Grid</a></li>
-                                    <li><a href="blog-classic.html">Blog Classic</a></li>
-                                    <li><a href="blog-single.html">Blog Single</a></li>
-                                </ul>
-                            </li>
                             <li><a href="contact.html">Contact</a></li>
                         </ul>
                     </div>
