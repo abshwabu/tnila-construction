@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProjectController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,3 +25,6 @@ Route::get('/about', function () {
 Route::get('/test-images', function () {
     return view('test-images');
 })->name('test-images');
+
+Route::get('/projects', [ProjectController::class, 'index'])->name('projects');
+Route::get('/projects/{slug}', [ProjectController::class, 'show'])->name('projects.show');

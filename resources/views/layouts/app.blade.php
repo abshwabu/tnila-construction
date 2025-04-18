@@ -56,15 +56,7 @@
                                     <li><a href="services-2.html">Services 02</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Pages</a>
-                                <ul>
-                                    <li><a href="projects.html">Our Projects</a></li>
-                                    <li><a href="project-single.html">Project Single</a></li>
-                                    <li><a href="team.html">Our Team</a></li>
-                                    <li><a href="testimonial.html">Testimonial</a></li>
-                                    <li><a href="404.html">404 Error</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{{ route('projects') }}">Projects</a></li>
                             <li><a href="#">Blog</a>
                                 <ul>
                                     <li><a href="blog-grid.html">Blog Grid</a></li>
