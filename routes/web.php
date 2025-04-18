@@ -32,3 +32,7 @@ Route::get('/projects/{slug}', [ProjectController::class, 'show'])->name('projec
 Route::get('/services', function () {
     return view('services');
 })->name('services');
+
+Route::get('/contacts', function () {
+    return view('contacts');
+})->name('contacts');
