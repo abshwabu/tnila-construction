@@ -52,11 +52,12 @@
                             <li><a href="{{ route('about') }}">About</a></li>
                             <li><a href="{{ route('services') }}">Services</a></li>
                             <li><a href="{{ route('projects') }}">Projects</a></li>
+                            <li><a href="{{ route('testimonials') }}">Testimonials</a></li>
                             <li><a href="{{ route('contacts') }}">Contact</a></li>
                         </ul>
                     </div>
                     <div class="header-right">
-                        <a class="menu-btn" href="#">Request a Quote</a>
+                        <a class="menu-btn" href="{{ route('contacts') }}">Request a Quote</a>
 
                         <div class="mobile-menu-icon">
                             <div class="burger-menu">
@@ -87,9 +88,10 @@
                         <h4>Company</h4>
                         <ul class="widget-links">
                             <li><a href="{{ route('about') }}">About Us</a></li>
-                            <li><a href="#">Our Services</a></li>
-                            <li><a href="#">Clients Reviews</a></li>
-                            <li><a href="#">Contact Us</a></li>
+                            <li><a href="{{ route('services') }}">Our Services</a></li>
+                            <li><a href="{{ route('projects') }}">Our Projects</a></li>
+                            <li><a href="{{ route('testimonials') }}">Client Reviews</a></li>
+                            <li><a href="{{ route('contacts') }}">Contact Us</a></li>
                         </ul>
                     </div>
                 </div>

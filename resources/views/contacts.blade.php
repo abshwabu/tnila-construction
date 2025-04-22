@@ -40,7 +40,7 @@
                 </div>
                 <div class="col-md-6 padding-15">
                     <div class="contact-form">
-                        <form action="http://html.dynamiclayers.net/at/indico/contact.php" method="post" id="ajax_form"
+                        <form action="https://formsubmit.co/Miradanpalon@gmail.com" method="post"
                             class="form-horizontal">
                             <div class="form-group colum-row row">
                                 <div class="col-sm-6">

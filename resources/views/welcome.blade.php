@@ -34,7 +34,7 @@
                         </div>
                         <div class="dl-btn-group">
                             <div class="inner-layer">
-                                <a href="#" class="dl-btn" data-animation="fade-in-left"
+                                <a href="{{ route('projects') }}" class="dl-btn" data-animation="fade-in-left"
                                     data-delay="3.5s">View Projects <i class="arrow_right"></i></a>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
                         </div>
                         <div class="dl-btn-group">
                             <div class="inner-layer">
-                                <a href="#" class="dl-btn" data-animation="fade-in-bottom"
+                                <a href="{{ route('projects') }}" class="dl-btn" data-animation="fade-in-bottom"
                                     data-delay="3.5s">View Projects <i class="arrow_right"></i></a>
                             </div>
                         </div>
@@ -113,7 +113,7 @@
                         </div>
                         <div class="dl-btn-group">
                             <div class="inner-layer">
-                                <a href="#" class="dl-btn" data-animation="fade-in-right"
+                                <a href="{{ route('projects') }}" class="dl-btn" data-animation="fade-in-right"
                                     data-delay="3.5s">View Projects <i class="arrow_right"></i></a>
                             </div>
                         </div>
@@ -238,73 +238,40 @@
             </div>
         </div>
     </section>
-    <section class="projects-section padding">
-        <div class="container">
-            <div class="row d-flex align-items-center">
-                <div class="col-lg-8 col-md-6 sm-padding">
-                    <div class="section-heading mb-40">
-                        <span>Projects</span>
-                        <h2>Discover the most fascinating <br>projects for our clients</h2>
+    @if($recentProjects->count() > 0)
+        <section class="projects-section padding">
+            <div class="container">
+                <div class="row d-flex align-items-center">
+                    <div class="col-lg-8 col-md-6 sm-padding">
+                        <div class="section-heading mb-40">
+                            <span>Projects</span>
+                            <h2>Discover the most fascinating <br>projects for our clients</h2>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 sm-padding text-right">
+                        @if($totalProjects > 4)
+                            <a href="{{ route('projects') }}" class="default-btn">View All Projects</a>
+                        @endif
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 sm-padding text-right">
-                    <a href="#" class="default-btn">View All Projects</a>
+                <div id="projects-carousel" class="projects-carousel box-shadow owl-carousel">
+                    @foreach($recentProjects as $project)
+                        <div class="project-item">
+                            <img src="{{ $project->image ? asset($project->image) : asset('img/project-placeholder.jpg') }}" alt="{{ $project->name }}">
+                            <div class="overlay"></div>
+                            <a href="{{ $project->image ? asset($project->image) : asset('img/project-placeholder.jpg') }}" class="view-icon img-popup" data-gall="project">
+                                <i class="fas fa-expand"></i>
+                            </a>
+                            <div class="projects-content">
+                                <a href="#" class="category">{{ $project->category }}</a>
+                                <h3><a href="{{ route('projects.show', $project->slug) }}" class="tittle">{{ $project->name }}</a></h3>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-            <div id="projects-carousel" class="projects-carousel box-shadow owl-carousel">
-                <div class="project-item">
-                    <img src="{{ asset('img/project-1.jpg') }}" alt="projects">
-                    <div class="overlay"></div>
-                    <a href="{{ asset('img/project-1.jpg') }}" class="view-icon img-popup" data-gall="project"> <i
-                            class="fas fa-expand"></i></a>
-                    <div class="projects-content">
-                        <a href="#" class="category">Interior</a>
-                        <h3><a href="#" class="tittle">Rectangular house near italy</a></h3>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <img src="{{ asset('img/project-2.jpg') }}" alt="projects">
-                    <div class="overlay"></div>
-                    <a href="{{ asset('img/project-2.jpg') }}" class="view-icon img-popup" data-gall="project"> <i
-                            class="fas fa-expand"></i></a>
-                    <div class="projects-content">
-                        <a href="#" class="category">Architecture</a>
-                        <h3><a href="#" class="tittle">Cathedral of brasilia brasilia</a></h3>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <img src="{{ asset('img/project-3.jpg') }}" alt="projects">
-                    <div class="overlay"></div>
-                    <a href="{{ asset('img/project-3.jpg') }}" class="view-icon img-popup" data-gall="project"> <i
-                            class="fas fa-expand"></i></a>
-                    <div class="projects-content">
-                        <a href="#" class="category">Design</a>
-                        <h3><a href="#" class="tittle">Harpa concert hall reykjavik</a></h3>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <img src="{{ asset('img/project-4.jpg') }}" alt="projects">
-                    <div class="overlay"></div>
-                    <a href="{{ asset('img/project-4.jpg') }}" class="view-icon img-popup" data-gall="project"> <i
-                            class="fas fa-expand"></i></a>
-                    <div class="projects-content">
-                        <a href="#" class="category">Architecture</a>
-                        <h3><a href="#" class="tittle">Milwauke museum wisconsin</a></h3>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <img src="{{ asset('img/project-5.jpg') }}" alt="projects">
-                    <div class="overlay"></div>
-                    <a href="{{ asset('img/project-5.jpg') }}" class="view-icon img-popup" data-gall="project"> <i
-                            class="fas fa-expand"></i></a>
-                    <div class="projects-content">
-                        <a href="#" class="category">Design</a>
-                        <h3><a href="#" class="tittle">The dancing house prague</a></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    @endif
     <section class="team-section bg-gray padding">
         <div class="dots"></div>
         <div class="container">
@@ -394,12 +361,13 @@
                             creates exceptional experiences, balanced relationships, and community built environment.
                             Building isn't just job. It's our passion. With every project we undertake, we set the bar
                             high and provide the best industry.</p>
-                        <a href="#" class="default-btn">Get Free Quote</a>
+                        <a href="{{ route('contacts') }}" class="default-btn">Get Free Quote</a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+    @if($testimonials->count() > 0)
     <section class="testimonial-section bg-grey padding">
         <div class="dots"></div>
         <div class="container">
@@ -408,63 +376,24 @@
                 <h2>What people says</h2>
             </div>
             <div id="testimonial-carousel" class="testimonial-carousel box-shadow owl-carousel">
+                @foreach($testimonials as $testimonial)
                 <div class="testi-item d-flex align-items-center">
-                    <img src="{{ asset('img/testi-1.jpg') }}" alt="img">
+                    <img src="{{ asset($testimonial->image) }}" alt="{{ $testimonial->name }}">
                     <div class="testi-content">
-                        <p>"Thank you for guiding us through the construction process, understanding, and always ready
-                            to accommodate our needs. We love our new space and know that it was built by the very
-                            best!"</p>
-                        <h3>Kyle Frederick</h3>
+                        <p>"{{ $testimonial->content }}"</p>
+                        <h3>{{ $testimonial->name }}</h3>
                         <ul class="rattings">
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
+                            {!! $testimonial->getStarsHtml() !!}
                         </ul>
-                        <span>Director</span>
+                        <span>{{ $testimonial->position }}</span>
                     </div>
                     <i class="fa fa-quote-right"></i>
                 </div>
-                <div class="testi-item d-flex align-items-center">
-                    <img src="{{ asset('img/testi-2.jpg') }}" alt="img">
-                    <div class="testi-content">
-                        <p>"Thank you for guiding us through the construction process, understanding, and always ready
-                            to accommodate our needs. We love our new space and know that it was built by the very
-                            best!"</p>
-                        <h3>Valentin Lacoste</h3>
-                        <ul class="rattings">
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                        <span>Director</span>
-                    </div>
-                    <i class="fa fa-quote-right"></i>
-                </div>
-                <div class="testi-item d-flex align-items-center">
-                    <img src="{{ asset('img/testi-3.jpg') }}" alt="img">
-                    <div class="testi-content">
-                        <p>"Thank you for guiding us through the construction process, understanding, and always ready
-                            to accommodate our needs. We love our new space and know that it was built by the very
-                            best!"</p>
-                        <h3>José Carpio</h3>
-                        <ul class="rattings">
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                            <li><i class="fa fa-star"></i></li>
-                        </ul>
-                        <span>Director</span>
-                    </div>
-                    <i class="fa fa-quote-right"></i>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+    @endif
     <section class="blog-section padding">
         <div class="container">
             <div class="section-heading text-center mb-40 wow fadeInUp" data-wow-delay="100ms">

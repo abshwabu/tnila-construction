@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
+use App\Models\Project;
+use App\Models\Testimonial;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,11 +17,29 @@ use App\Http\Controllers\ProjectController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // Get the 4 most recent projects
+    $recentProjects = Project::orderBy('project_year', 'desc')
+        ->take(4)
+        ->get();
+    
+    // Count total projects to determine if "View All" should be shown
+    $totalProjects = Project::count();
+    
+    // Get active testimonials
+    $testimonials = Testimonial::active()
+        ->orderBy('display_order')
+        ->get();
+    
+    return view('welcome', compact('recentProjects', 'totalProjects', 'testimonials'));
 })->name('home');
 
 Route::get('/about', function () {
-    return view('about');
+    // Get active testimonials for about page
+    $testimonials = Testimonial::active()
+        ->orderBy('display_order')
+        ->get();
+        
+    return view('about', compact('testimonials'));
 })->name('about');
 
 Route::get('/test-images', function () {
@@ -36,3 +56,11 @@ Route::get('/services', function () {
 Route::get('/contacts', function () {
     return view('contacts');
 })->name('contacts');
+
+Route::get('/testimonials', function () {
+    $testimonials = Testimonial::active()
+        ->orderBy('display_order')
+        ->get();
+        
+    return view('testimonials', compact('testimonials'));
+})->name('testimonials');
