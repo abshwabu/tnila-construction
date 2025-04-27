@@ -54,6 +54,7 @@
                             <li><a href="{{ route('projects') }}">Projects</a></li>
                             <li><a href="{{ route('testimonials') }}">Testimonials</a></li>
                             <li><a href="{{ route('contacts') }}">Contact</a></li>
+                            <li><a href="{{ route('team') }}">Team</a></li>
                         </ul>
                     </div>
                     <div class="header-right">

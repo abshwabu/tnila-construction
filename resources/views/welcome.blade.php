@@ -272,6 +272,7 @@
             </div>
         </section>
     @endif
+    @if($teamMembers->count() > 0)
     <section class="team-section bg-gray padding">
         <div class="dots"></div>
         <div class="container">
@@ -280,73 +281,36 @@
                 <h2>Speciallized team</h2>
             </div>
             <div class="row team-wrap box-shadow">
+                @foreach($teamMembers as $member)
                 <div class="col-lg-3 col-sm-6 padding-15">
                     <div class="team-item">
                         <div class="overlay"></div>
-                        <img src="{{ asset('img/Worker-1.jpg') }}" alt="team">
+                        <img src="{{ asset($member->image) }}" alt="{{ $member->name }}">
                         <div class="team-content">
-                            <h3>Jhon Castellon</h3>
-                            <span>Architect</span>
+                            <h3>{{ $member->name }}</h3>
+                            <span>{{ $member->position }}</span>
                         </div>
                         <ul class="team-social">
-                            <li><a href="#"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            <li><a href="#"><i class="ti-youtube"></i></a></li>
+                            @if($member->facebook_url)
+                            <li><a href="{{ $member->facebook_url }}" target="_blank"><i class="ti-facebook"></i></a></li>
+                            @endif
+                            @if($member->twitter_url)
+                            <li><a href="{{ $member->twitter_url }}" target="_blank"><i class="ti-twitter"></i></a></li>
+                            @endif
+                            @if($member->instagram_url)
+                            <li><a href="{{ $member->instagram_url }}" target="_blank"><i class="ti-instagram"></i></a></li>
+                            @endif
+                            @if($member->linkedin_url)
+                            <li><a href="{{ $member->linkedin_url }}" target="_blank"><i class="ti-linkedin"></i></a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
-                <div class="col-lg-3 col-sm-6 padding-15">
-                    <div class="team-item">
-                        <div class="overlay"></div>
-                        <img src="{{ asset('img/Worker-2.jpg') }}" alt="team">
-                        <div class="team-content">
-                            <h3>José Carpio</h3>
-                            <span>Designer</span>
-                        </div>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            <li><a href="#"><i class="ti-youtube"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 padding-15">
-                    <div class="team-item">
-                        <div class="overlay"></div>
-                        <img src="{{ asset('img/Worker-3.jpg') }}" alt="team">
-                        <div class="team-content">
-                            <h3>Valentin Lacoste</h3>
-                            <span>Developer</span>
-                        </div>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            <li><a href="#"><i class="ti-youtube"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-sm-6 padding-15">
-                    <div class="team-item">
-                        <div class="overlay"></div>
-                        <img src="{{ asset('img/Worker-4.jpg') }}" alt="team">
-                        <div class="team-content">
-                            <h3>Kyle Frederick</h3>
-                            <span>Marketer</span>
-                        </div>
-                        <ul class="team-social">
-                            <li><a href="#"><i class="ti-facebook"></i></a></li>
-                            <li><a href="#"><i class="ti-twitter"></i></a></li>
-                            <li><a href="#"><i class="ti-instagram"></i></a></li>
-                            <li><a href="#"><i class="ti-youtube"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+    @endif
     <section class="content-section padding">
         <div class="container">
             <div class="row content-wrap">
@@ -394,87 +358,5 @@
         </div>
     </section>
     @endif
-    <section class="blog-section padding">
-        <div class="container">
-            <div class="section-heading text-center mb-40 wow fadeInUp" data-wow-delay="100ms">
-                <span>From Blog</span>
-                <h2>Speciallized news</h2>
-            </div>
-            <div class="row blog-wrap">
-                <div class="col-lg-4 col-sm-6 sm-padding">
-                    <div class="blog-item box-shadow">
-                        <div class="blog-thumb">
-                            <img src="{{ asset('img/post-1.jpg') }}" alt="post">
-                            <span class="category"><a href="#">interior</a></span>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">Minimalist trending in modern architecture 2019</a></h3>
-                            <p>Building first evolved out dynamics between needs means available building materials
-                                attendant skills.</p>
-                            <a href="#" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 sm-padding">
-                    <div class="blog-item box-shadow">
-                        <div class="blog-thumb">
-                            <img src="{{ asset('img/post-2.jpg') }}" alt="post">
-                            <span class="category"><a href="#">Architecture</a></span>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">Terrace in the town yamazaki kentaro design workshop.</a></h3>
-                            <p>Building first evolved out dynamics between needs means available building materials
-                                attendant skills.</p>
-                            <a href="#" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 sm-padding">
-                    <div class="blog-item box-shadow">
-                        <div class="blog-thumb">
-                            <img src="{{ asset('img/post-3.jpg') }}" alt="post">
-                            <span class="category"><a href="#">Design</a></span>
-                        </div>
-                        <div class="blog-content">
-                            <h3><a href="#">W270 house são paulo arquitetos fabio jorge architeqture.</a></h3>
-                            <p>Building first evolved out dynamics between needs means available building materials
-                                attendant skills.</p>
-                            <a href="#" class="read-more">Read More</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <div class="sponsor-section bg-grey">
-        <div class="dots"></div>
-        <div class="container">
-            <div id="sponsor-carousel" class="sponsor-carousel owl-carousel">
-                <div class="sponsor-item">
-                    <img src="{{ asset('img/sponsor1.png') }}" alt="sponsor">
-                </div>
-                <div class="sponsor-item">
-                    <img src="{{ asset('img/sponsor2.png') }}" alt="sponsor">
-                </div>
-                <div class="sponsor-item">
-                    <img src="{{ asset('img/sponsor3.png') }}" alt="sponsor">
-                </div>
-                <div class="sponsor-item">
-                    <img src="{{ asset('img/sponsor4.png') }}" alt="sponsor">
-                </div>
-                <div class="sponsor-item">
-                    <img src="{{ asset('img/sponsor5.png') }}" alt="sponsor">
-                </div>
-                <div class="sponsor-item">
-                    <img src="{{ asset('img/sponsor6.png') }}" alt="sponsor">
-                </div>
-                <div class="sponsor-item">
-                    <img src="{{ asset('img/sponsor7.png') }}" alt="sponsor">
-                </div>
-                <div class="sponsor-item">
-                    <img src="{{ asset('img/sponsor8.png') }}" alt="sponsor">
-                </div>
-            </div>
-        </div>
-    </div>
+    
 @endsection

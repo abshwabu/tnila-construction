@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Models\Project;
 use App\Models\Testimonial;
+use App\Models\TeamMember;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,7 +31,13 @@ Route::get('/', function () {
         ->orderBy('display_order')
         ->get();
     
-    return view('welcome', compact('recentProjects', 'totalProjects', 'testimonials'));
+    // Get active team members
+    $teamMembers = TeamMember::active()
+        ->orderBy('display_order')
+        ->take(4)
+        ->get();
+    
+    return view('welcome', compact('recentProjects', 'totalProjects', 'testimonials', 'teamMembers'));
 })->name('home');
 
 Route::get('/about', function () {
@@ -64,3 +71,7 @@ Route::get('/testimonials', function () {
         
     return view('testimonials', compact('testimonials'));
 })->name('testimonials');
+
+// Team routes
+Route::get('/team', [App\Http\Controllers\TeamController::class, 'index'])->name('team');
+Route::get('/team/{id}', [App\Http\Controllers\TeamController::class, 'show'])->name('team.show');
