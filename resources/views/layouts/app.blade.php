@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="primary-header-inner">
                     <div class="header-logo">
-                        <a href="{{ route('home') }}"><img src="{{ asset('img/logo-dark.png') }}" alt="Tnila"></a>
+                        <a href="{{ route('home') }}"><h1 class="text-bold">Tnila</h1></a>
                     </div>
                     <div class="header-menu-wrap">
                         <ul class="dl-menu">
@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-lg-3 col-sm-6 sm-padding">
                     <div class="widget-content">
-                        <a href="{{ route('home') }}"><img src="{{ asset('img/logo-light.png') }}" alt="brand"></a>
+                        <a href="{{ route('home') }}"><h1 class="text-bold text-white">Tnila</h1></a>
                         <p>Building your own home is about desire, fantasy. But it's achievable anyone can do it.</p>
                     </div>
                 </div>
